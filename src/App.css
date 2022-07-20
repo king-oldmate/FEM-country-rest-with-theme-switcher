@@ -4,13 +4,41 @@
   font-size: large;
   font-weight: bold;
   padding: 20px;
-  height: calc(100vh - 40px);
   transition: all 0.5s;
+}
+main {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 37px;
 }
 button {
   color: var(--text-primary);
   background-color: var(--background);
   border: 2px var(--text-primary) solid;
-  float: right;
   transition: all 0.5s;
+}
+
+.card {
+  background-color: var(--elements);
+  max-width: 264px;
+  border-radius: 4px;
+  overflow: hidden;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.card img {
+  width: 100%;
+  object-fit: contain;
+}
+.card-details {
+  padding: 27px 25px;
+}
+.card h2 {
+  font-size: 16px;
+  font-weight: 800;
+}
+.card li span {
+  font-weight: 600;
 }

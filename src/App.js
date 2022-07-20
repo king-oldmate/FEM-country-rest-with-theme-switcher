@@ -33,21 +33,47 @@ const App = () => {
     getData();
   }, []);
 
-  const [cardDisplay, setCardDisplay] = useState(["AUS, USA, LEB"]);
+  const [cardDisplay, setCardDisplay] = useState(["AUS", "LBN", "VAT", "PRK"]);
+
+  const [regionFilter, setRegionFilter] = useState("Oceania");
 
   return (
-    <div className='card-grid App' data-theme={theme}>
+    <div className='App' data-theme={theme}>
       <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
         Switch
       </button>
-      {loading && <p>Loading...</p>}
-      {data &&
-        data.map((country) => {
-          return <CountryCard country={country} />;
-          // const {flag, cca3:code, name} = country
-          // console.log(country)
-          // return <p>{name.common} {flag} {code}</p>
-        })}
+      <ul>
+        <li>
+          <button onClick={() => setRegionFilter("Africa")}>Africa</button>
+        </li>
+        <li>
+          <button onClick={() => setRegionFilter("Americas")}>Americas</button>
+        </li>
+        <li>
+          <button onClick={() => setRegionFilter("Asia")}>Asia</button>
+        </li>
+        <li>
+          <button onClick={() => setRegionFilter("Europe")}>Europe</button>
+        </li>
+        <li>
+          <button onClick={() => setRegionFilter("Oceania")}>Oceania</button>
+        </li>
+      </ul>
+      <main className='card-grid'>
+        {loading && <p>Loading...</p>}
+        {data &&
+          data.map((country) => {
+            return (
+              //cardDisplay.includes(country.cca3) &&
+              regionFilter.includes(country.region) && (
+                <CountryCard country={country} />
+              )
+            );
+            // const {flag, cca3:code, name} = country
+            // console.log(country)
+            // return <p>{name.common} {flag} {code}</p>
+          })}
+      </main>
     </div>
   );
 };

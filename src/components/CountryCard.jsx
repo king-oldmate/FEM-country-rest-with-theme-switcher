@@ -1,10 +1,34 @@
-import React from 'react'
+import React from "react";
 
-const CountryCard = ({country}) => {
-    const {name, flag, cca3:code} = country
+const CountryCard = ({ country }) => {
+  const { name, cca3: code, flags, region, capital } = country;
+  let { population } = country;
+  population = population.toLocaleString("en-US");
+
   return (
-    <p>{name.common} {flag} {code}</p>
-  )
-}
+    <div className='card' key={name.offical}>
+      <picture>
+        <img src={flags.png} alt={name} />
+      </picture>
+      <div className='card-details'>
+        <h2>{name.common}</h2>
+        <ul>
+          <li>
+            <span>Population: </span>
+            {population} peeps
+          </li>
+          <li>
+            <span>Region: </span>
+            {region}
+          </li>
+          <li>
+            <span>Capital: </span>
+            {capital}
+          </li>
+        </ul>
+      </div>
+    </div>
+  );
+};
 
-export default CountryCard
+export default CountryCard;
