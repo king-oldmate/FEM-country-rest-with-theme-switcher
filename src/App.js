@@ -3,6 +3,8 @@ import axios from "axios";
 import useLocalStorage from "use-local-storage";
 import "./App.css";
 import CountryCard from "./components/CountryCard";
+import Header from "./components/Header";
+import Searchbar from "./components/Searchbar";
 
 const App = () => {
   const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -39,26 +41,8 @@ const App = () => {
 
   return (
     <div className='App' data-theme={theme}>
-      <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
-        Switch
-      </button>
-      <ul>
-        <li>
-          <button onClick={() => setRegionFilter("Africa")}>Africa</button>
-        </li>
-        <li>
-          <button onClick={() => setRegionFilter("Americas")}>Americas</button>
-        </li>
-        <li>
-          <button onClick={() => setRegionFilter("Asia")}>Asia</button>
-        </li>
-        <li>
-          <button onClick={() => setRegionFilter("Europe")}>Europe</button>
-        </li>
-        <li>
-          <button onClick={() => setRegionFilter("Oceania")}>Oceania</button>
-        </li>
-      </ul>
+      <Header theme={theme} setTheme={setTheme} />
+      <Searchbar setRegionFilter={setRegionFilter} />
       <main className='card-grid'>
         {loading && <p>Loading...</p>}
         {data &&
