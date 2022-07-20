@@ -1,46 +1,55 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-
-import CountryCard from './components/CountryCard';
+import useLocalStorage from "use-local-storage";
+import "./App.css";
+import CountryCard from "./components/CountryCard";
 
 const App = () => {
-// GET request
-const [data, setData] = useState(null);
-const [loading, setLoading] = useState(true);
-const [error, setError] = useState(null);
+  const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const [theme, setTheme] = useLocalStorage(
+    "theme",
+    defaultDark ? "dark" : "light"
+  );
 
-useEffect(() => {
-  const getData = async () => {
-    try {
-      const response = await axios.get(
-        `https://restcountries.com/v3.1/all`
-      );
-      // setData(response.data);
-        setData(response.data)
-      setError(null);
-    } catch (error) {
-      setError(error.message);
-      setData(null);
-    } finally {
-      setLoading(false);
-    }
-  };
-  getData();
-}, []);
+  // GET request
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-const [cardDisplay, setCardDisplay] = useState(['AUS, USA, LEB'])
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await axios.get(`https://restcountries.com/v3.1/all`);
+        // setData(response.data);
+        setData(response.data);
+        setError(null);
+      } catch (error) {
+        setError(error.message);
+        setData(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+    getData();
+  }, []);
 
-  return (<>
-  {loading && <p>Loading...</p>}
-  {data && data.map((country) => {
-    return <CountryCard country={country} />
-    // const {flag, cca3:code, name} = country
-    // console.log(country)
-    // return <p>{name.common} {flag} {code}</p>
-    })}
-  </>
-    
-  )
-}
+  const [cardDisplay, setCardDisplay] = useState(["AUS, USA, LEB"]);
 
-export default App
+  return (
+    <div className='card-grid App' data-theme={theme}>
+      <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
+        Switch
+      </button>
+      {loading && <p>Loading...</p>}
+      {data &&
+        data.map((country) => {
+          return <CountryCard country={country} />;
+          // const {flag, cca3:code, name} = country
+          // console.log(country)
+          // return <p>{name.common} {flag} {code}</p>
+        })}
+    </div>
+  );
+};
+
+export default App;
