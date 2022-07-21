@@ -2,11 +2,14 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import useLocalStorage from "use-local-storage";
 import "./App.css";
-import CountryCard from "./components/CountryCard";
+
 import Header from "./components/Header";
 import Searchbar from "./components/Searchbar";
+import GridDisplay from "./components/GridDisplay";
+import SingleDisplay from "./components/SingleDisplay";
 
 const App = () => {
+  // colour theme settings
   const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const [theme, setTheme] = useLocalStorage(
     "theme",
@@ -37,12 +40,9 @@ const App = () => {
 
   const [cardDisplay, setCardDisplay] = useState(["AUS", "LBN", "VAT", "PRK"]);
 
+  // search filters
   const [regionFilter, setRegionFilter] = useState("Oceania");
   const [search, setSearch] = useState("");
-
-  useEffect(() => {
-    console.log(search);
-  }, [search]);
 
   return (
     <div className='App' data-theme={theme}>
@@ -52,20 +52,13 @@ const App = () => {
         search={search}
         setSearch={setSearch}
       />
-      <main className='card-grid'>
-        {loading && <p>Loading...</p>}
-        {data &&
-          data.map((country, index) => {
-            const { name, region } = country;
-            //console.log(name.common);
-            return (
-              regionFilter.includes(region) &&
-              name.common.toLowerCase().indexOf(search.toLowerCase()) > -1 && (
-                <CountryCard country={country} id={index} />
-              )
-            );
-          })}
-      </main>
+      <SingleDisplay />
+      <GridDisplay
+        data={data}
+        loading={loading}
+        regionFilter={regionFilter}
+        search={search}
+      />
     </div>
   );
 };
