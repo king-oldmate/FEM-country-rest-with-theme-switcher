@@ -59,8 +59,8 @@ const App = () => {
             const { name, region } = country;
             //console.log(name.common);
             return (
-              regionFilter.includes(region) && (
-                //name.common.indexOf(search) && (
+              regionFilter.includes(region) &&
+              name.common.toLowerCase().indexOf(search.toLowerCase()) > -1 && (
                 <CountryCard country={country} id={index} />
               )
             );
