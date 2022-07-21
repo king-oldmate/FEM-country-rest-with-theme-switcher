@@ -44,7 +44,7 @@ const App = () => {
   const [regionFilter, setRegionFilter] = useState("Oceania");
   const [search, setSearch] = useState("");
 
-  const [viewCountry, setViewCountry] = useState("Belgium");
+  const [viewCountry, setViewCountry] = useState(false);
 
   return (
     <div className='App' data-theme={theme}>
@@ -56,6 +56,11 @@ const App = () => {
           setViewCountry={setViewCountry}
         />
       ) : (
+        // <SingleDisplay
+        //   data={data}
+        //   viewCountry={viewCountry}
+        //   setViewCountry={setViewCountry}
+        // />
         <>
           <Searchbar
             setRegionFilter={setRegionFilter}

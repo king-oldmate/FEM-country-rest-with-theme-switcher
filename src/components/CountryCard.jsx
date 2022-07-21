@@ -1,12 +1,13 @@
 import React from "react";
 
-const CountryCard = ({ country, id }) => {
+const CountryCard = ({ country, id, viewCountry, setViewCountry }) => {
   const { name, cca3: code, flags, region, capital } = country;
   let { population } = country;
   population = population.toLocaleString("en-US");
 
   return (
-    <div className='card' key={id}>
+    <div className='card' key={id} onClick={() => setViewCountry(code)}>
+      {code}
       <picture>
         <img src={flags.png} alt={name} />
       </picture>
