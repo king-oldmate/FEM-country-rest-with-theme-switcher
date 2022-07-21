@@ -64,12 +64,13 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 ### Continued development
 
-Still need to work on utilising APIs, it just hasn't clicked for me yet.
+Still need to work on utilising APIs, it just hasn't clicked for me yet. Encapsulating it is also something I'd like to do.
 
 ### Useful resources
 
 - [Easy Dark Mode](https://css-tricks.com/easy-dark-mode-and-multiple-color-themes-in-react/) - This article made the first time I implemented a theme switcher (this project) a breeze.
 - [Thousands Separator](https://code-boxx.com/add-comma-to-numbers-javascript/) - Before I searched for this I was worried I'd have to write up a function to split and count and join and nope this was all I needed, `toLocaleString("en-US")`, sweet.
+- [React loop through Object](https://bobbyhadz.com/blog/react-loop-through-object) - I occasionally struggle with objects and getting the right method, and this helped a lot with these nested objects and finding what I needed.
 
 ## Author
 

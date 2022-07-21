@@ -44,21 +44,34 @@ const App = () => {
   const [regionFilter, setRegionFilter] = useState("Oceania");
   const [search, setSearch] = useState("");
 
+  const [viewCountry, setViewCountry] = useState("Belgium");
+
   return (
     <div className='App' data-theme={theme}>
       <Header theme={theme} setTheme={setTheme} />
-      <Searchbar
-        setRegionFilter={setRegionFilter}
-        search={search}
-        setSearch={setSearch}
-      />
-      <SingleDisplay />
-      <GridDisplay
-        data={data}
-        loading={loading}
-        regionFilter={regionFilter}
-        search={search}
-      />
+      {viewCountry ? (
+        <SingleDisplay
+          data={data}
+          viewCountry={viewCountry}
+          setViewCountry={setViewCountry}
+        />
+      ) : (
+        <>
+          <Searchbar
+            setRegionFilter={setRegionFilter}
+            search={search}
+            setSearch={setSearch}
+          />
+          <GridDisplay
+            data={data}
+            loading={loading}
+            regionFilter={regionFilter}
+            search={search}
+            viewCountry={viewCountry}
+            setViewCountry={setViewCountry}
+          />
+        </>
+      )}
     </div>
   );
 };
