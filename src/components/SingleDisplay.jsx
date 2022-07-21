@@ -79,6 +79,10 @@ const SingleDisplay = ({ viewCountry, setViewCountry }) => {
                   })}
                 </li>
               </ul>
+              <div>
+                <h3>Border Countries:</h3>
+                <ul>{}</ul>
+              </div>
             </div>
           </div>
         )}
