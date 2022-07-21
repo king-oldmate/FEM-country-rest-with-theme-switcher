@@ -38,24 +38,32 @@ const App = () => {
   const [cardDisplay, setCardDisplay] = useState(["AUS", "LBN", "VAT", "PRK"]);
 
   const [regionFilter, setRegionFilter] = useState("Oceania");
+  const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    console.log(search);
+  }, [search]);
 
   return (
     <div className='App' data-theme={theme}>
       <Header theme={theme} setTheme={setTheme} />
-      <Searchbar setRegionFilter={setRegionFilter} />
+      <Searchbar
+        setRegionFilter={setRegionFilter}
+        search={search}
+        setSearch={setSearch}
+      />
       <main className='card-grid'>
         {loading && <p>Loading...</p>}
         {data &&
-          data.map((country) => {
+          data.map((country, index) => {
+            const { name, region } = country;
+            //console.log(name.common);
             return (
-              //cardDisplay.includes(country.cca3) &&
-              regionFilter.includes(country.region) && (
-                <CountryCard country={country} />
+              regionFilter.includes(region) && (
+                //name.common.indexOf(search) && (
+                <CountryCard country={country} id={index} />
               )
             );
-            // const {flag, cca3:code, name} = country
-            // console.log(country)
-            // return <p>{name.common} {flag} {code}</p>
           })}
       </main>
     </div>

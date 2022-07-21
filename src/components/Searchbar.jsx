@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
+import { FiChevronDown } from "react-icons/fi";
 
-const Searchbar = ({ setRegionFilter }) => {
+const Searchbar = ({ setRegionFilter, search, setSearch }) => {
+  const [showDropDown, setShowDropDown] = useState(false);
+
   return (
-    <div>
-      <div>Search</div>
+    <div className='search'>
+      <input
+        type='text'
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
       <div>
-        <ul>
+        <button
+          className='filter-button'
+          onClick={() => setShowDropDown(!showDropDown)}
+        >
+          Filter by Region <FiChevronDown />
+        </button>
+
+        <ul className={showDropDown ? "active" : ""}>
           <li>
             <button onClick={() => setRegionFilter("Africa")}>Africa</button>
           </li>
