@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: "Nunito Sans", sans-serif;
 }
 .App {
   color: var(--text-primary);
@@ -26,7 +27,7 @@ header {
   justify-content: space-between;
   align-items: center;
   background-color: var(--elements);
-  font-size: 22px;
+  font-size: 14px;
   height: 80px;
   margin-bottom: 23px;
 }
@@ -40,7 +41,7 @@ header > button {
   border: 0;
   transition: all 0.5s;
   background-color: transparent;
-  font-size: 17px;
+  font-size: 13px;
 }
 .search {
   display: flex;
@@ -115,5 +116,28 @@ ul button {
   margin-bottom: 10px;
 }
 .card li span {
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.singleCountry {
+  justify-content: left;
+  width: 85%;
+  margin: 0 7.5%;
+}
+
+.singleCountry ul {
+  background-color: transparent;
+  font-size: 14px;
+  width: 100%;
+}
+.singleCountry ul li {
+  margin-bottom: 17px;
+}
+.category {
   font-weight: 600;
 }

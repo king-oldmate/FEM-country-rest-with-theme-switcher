@@ -4,7 +4,7 @@ import { FaMoon, FaRegMoon } from "react-icons/fa";
 const Header = ({ theme, setTheme }) => {
   return (
     <header>
-      <h1>Where in the World?</h1>
+      <h1>Where in the world?</h1>
       {theme === "dark" ? (
         <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
           <FaMoon /> Dark Mode

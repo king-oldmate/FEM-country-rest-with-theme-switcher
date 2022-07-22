@@ -62,6 +62,8 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 **CSS Variables:** Prior to this project I had been using TailwindCSS for everything. I still like TailwindCSS, but using it so soon meant that my uh.. pure CSS was lacking significantly. This was just one thing that I had never even used before.
 
+**Test everything:** I may still have missed something but every time I'd add a function or use an array or object method I'd always run into cases that would break the page (e.g. countries not having bordering nations). Overall, a good experience in testing edge cases.
+
 ### Continued development
 
 Still need to work on utilising APIs, it just hasn't clicked for me yet. Encapsulating it is also something I'd like to do.

@@ -15,23 +15,70 @@ const SingleDisplay = ({ data, viewCountry, setViewCountry }) => {
     capital,
     altSpellings,
   } = country;
-  console.log(name.common);
-  console.log(borders);
+  //   console.log(name.common);
+  //   console.log(borders);
+
+  const borderData = data.filter((e) => {
+    return borders && Object.values(e).some((r) => borders.includes(r));
+  });
 
   return (
     <>
       <button onClick={() => setViewCountry(false)}>Back</button>
       <main className='singleCountry'>
         <picture>
-          <img src={flags.png} />
+          <img src={flags.png} alt='flag' />
         </picture>
         <div>
-          <h2>{altSpellings[1]}</h2>
+          <h2>{name.common}</h2>
+          <ul>
+            <li>
+              <span className='subheading'>Native Name: </span>
+              {altSpellings[1]}
+            </li>
+            <li>
+              <span className='category'>Population: </span>
+              {population.toLocaleString("en-US")}
+            </li>
+            <li>
+              <span className='category'>Region: </span>
+              {region}
+            </li>
+            <li>
+              <span className='category'>Sub Region: </span>
+              {subregion}
+            </li>
+            <li>
+              <span className='category'>Capital: </span>
+              {capital}
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <span className='category'>Top Level Domain: </span>
+              {tld}
+            </li>
+            <li>
+              <span className='category'>Currencies: </span>
+              {Object.values(currencies).map((key, index) => {
+                return <span key={index}>{key.name}</span>;
+              })}
+            </li>
+            <li>
+              <span className='category'>Languages: </span>
+              {Object.values(languages).map((key, index) => {
+                return <span key={index}>{key}, </span>;
+              })}
+            </li>
+          </ul>
           {borders &&
-            borders.map((c, index) => {
+            borderData.map((country, index) => {
               return (
-                <button key={index} onClick={() => setViewCountry(c)}>
-                  {c}
+                <button
+                  key={index}
+                  onClick={() => setViewCountry(country.cca3)}
+                >
+                  {country.name.common}
                 </button>
               );
             })}

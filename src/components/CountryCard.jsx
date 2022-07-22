@@ -7,7 +7,6 @@ const CountryCard = ({ country, id, viewCountry, setViewCountry }) => {
 
   return (
     <div className='card' key={id} onClick={() => setViewCountry(code)}>
-      {code}
       <picture>
         <img src={flags.png} alt={name} />
       </picture>
