@@ -54,22 +54,30 @@ header > button {
   .search {
     flex-direction: row;
   }
+  header h1 {
+    font-size: 24px;
+  }
 }
 
 .search input {
   border: 0;
-  padding: 15px 60px 16px;
-  border-radius: 5px;
+  padding: 15px 60px 15px;
+  border-radius: 4px;
   background-image: url("./components/search.svg");
   background-repeat: no-repeat;
   background-position: 24px 15px;
+  width: 100%;
+  max-width: 480px;
+  margin-right: 32px;
+  height: 57px;
 }
 .filter-button {
   margin-bottom: 4px;
-  padding: 15px 24px 18px;
+  padding: 15px 24px 21px;
   border-radius: 4px;
   display: flex;
   justify-content: space-between;
+  height: 57px;
 }
 .search button,
 ul {
@@ -149,4 +157,7 @@ h2 {
 }
 .category {
   font-weight: 600;
+}
+.back-btn {
+  
 }

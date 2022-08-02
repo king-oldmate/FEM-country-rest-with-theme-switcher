@@ -24,7 +24,7 @@ const SingleDisplay = ({ data, viewCountry, setViewCountry }) => {
 
   return (
     <>
-      <button onClick={() => setViewCountry(false)}>Back</button>
+      <button className="back-btn" onClick={() => setViewCountry(false)}>Back</button>
       <main className='singleCountry'>
         <picture>
           <img src={flags.png} alt='flag' />

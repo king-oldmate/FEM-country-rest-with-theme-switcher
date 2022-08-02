@@ -7,11 +7,11 @@ const Header = ({ theme, setTheme }) => {
       <h1>Where in the world?</h1>
       {theme === "dark" ? (
         <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
-          <FaMoon /> Dark Mode
+          <FaMoon /> Light Mode
         </button>
       ) : (
         <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
-          <FaRegMoon /> Light Mode
+          <FaRegMoon /> Dark Mode
         </button>
       )}
     </header>
