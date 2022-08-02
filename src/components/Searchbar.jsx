@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FiChevronDown } from "react-icons/fi";
+import { HiOutlineSearch } from "react-icons/hi";
 
 const Searchbar = ({ setRegionFilter, search, setSearch }) => {
   const [showDropDown, setShowDropDown] = useState(false);
@@ -10,6 +11,7 @@ const Searchbar = ({ setRegionFilter, search, setSearch }) => {
         type='text'
         value={search}
         onChange={(e) => setSearch(e.target.value)}
+        placeholder='Search for a country...'
       />
       <div>
         <button

@@ -55,6 +55,15 @@ header > button {
     flex-direction: row;
   }
 }
+
+.search input {
+  border: 0;
+  padding: 15px 60px 16px;
+  border-radius: 5px;
+  background-image: url("./components/search.svg");
+  background-repeat: no-repeat;
+  background-position: 24px 15px;
+}
 .filter-button {
   margin-bottom: 4px;
   padding: 15px 24px 18px;
