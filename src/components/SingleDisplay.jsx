@@ -24,7 +24,9 @@ const SingleDisplay = ({ data, viewCountry, setViewCountry }) => {
 
   return (
     <>
-      <button className="back-btn" onClick={() => setViewCountry(false)}>Back</button>
+      <button className='back-btn btn' onClick={() => setViewCountry(false)}>
+        Back
+      </button>
       <main className='singleCountry'>
         <picture>
           <img src={flags.png} alt='flag' />
@@ -71,17 +73,22 @@ const SingleDisplay = ({ data, viewCountry, setViewCountry }) => {
               })}
             </li>
           </ul>
-          {borders &&
-            borderData.map((country, index) => {
-              return (
-                <button
-                  key={index}
-                  onClick={() => setViewCountry(country.cca3)}
-                >
-                  {country.name.common}
-                </button>
-              );
-            })}
+          <span className='category'>Border Countries:</span>
+          <ul>
+            {borders &&
+              borderData.map((country, index) => {
+                return (
+                  <li key={index}>
+                    <button
+                      className='btn'
+                      onClick={() => setViewCountry(country.cca3)}
+                    >
+                      {country.name.common}
+                    </button>
+                  </li>
+                );
+              })}
+          </ul>
         </div>
       </main>
     </>
