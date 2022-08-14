@@ -38,10 +38,10 @@ const App = () => {
     getData();
   }, []);
 
-  const [cardDisplay, setCardDisplay] = useState(["AUS", "LBN", "VAT", "PRK"]);
+  // const [cardDisplay, setCardDisplay] = useState(["AUS", "LBN", "VAT", "PRK"]);
 
   // search filters
-  const [regionFilter, setRegionFilter] = useState("Oceania");
+  const [regionFilter, setRegionFilter] = useState("Europe");
   const [search, setSearch] = useState("");
 
   const [viewCountry, setViewCountry] = useState(false);
