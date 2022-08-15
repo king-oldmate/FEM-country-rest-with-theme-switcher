@@ -18,21 +18,139 @@
   max-width: 1280px;
   margin: 0 4%;
 }
+
 button {
   cursor: pointer;
+  background-color: var(--elements);
+  color: var(--text-primary);
+  border: 0;
 }
 header {
   background-color: var(--elements);
   width: 100%;
   display: flex;
   justify-content: center;
+  height: 80px;
+  margin-bottom: 46px;
 }
 
 .inner-header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   max-width: 1280px;
+}
+
+header h1 {
+  font-size: x-large;
+  font-weight: 700;
+}
+
+header button {
+  height: fit-content;
+  padding: 3px 0px 3px 10px;
+}
+
+@media screen and (max-width: 600px) {
+  header h1 {
+    font-size: large;
+  }
+}
+.search {
+  width: 92%;
+  margin-bottom: 46px;
+}
+
+.inner-search {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 600px) {
+  .inner-search {
+    flex-direction: column;
+  }
+
+  .filter-button {
+    margin-top: 39px;
+  }
+}
+
+.inner-search .filter-button {
+  height: 56px;
+  border-radius: 8px;
+}
+
+.inner-search > .search-container {
+  display: flex;
+  flex-wrap: nowrap;
+  border: 2px solid var(--elements);
+}
+
+.inner-search .search-container {
+  height: 56px;
+  min-width: 342px;
+  border-radius: 8px;
+  background-color: var(--elements);
+  padding-left: 32px;
+  display: flex;
+  align-items: center;
+}
+
+.inner-search > div > svg {
+  height: 20px;
+  width: 20px;
+}
+
+.inner-search input {
+  width: 100%;
+  background-color: var(--elements);
+  color: var(--text-primary);
+  border: 0;
+  padding-left: 25px;
+}
+.search-container:focus-within {
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--text-primary);
+}
+
+.inner-search input:focus,
+.inner-search input:active {
+  outline: none;
+}
+
+.filter-button,
+.region-list {
+  width: 200px;
+  background-color: var(--elements);
+}
+
+.filter-button {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.region-list {
+  opacity: 0;
+  position: absolute;
+  transition: opacity 0.3s ease;
+  overflow: hidden;
+  padding: 12px 14px;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-top: 4px;
+}
+
+.region-list.active {
+  opacity: 1 !important;
+  overflow: auto;
+}
+.region-list li {
+  padding: 5px 10px;
 }
 
 .card-grid {
@@ -44,13 +162,45 @@ header {
 }
 
 .card {
-  width: 270px;
+  width: 265px;
   background-color: var(--elements);
   margin-bottom: 4%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.card:hover {
+  cursor: pointer;
 }
 
 .card img {
   object-fit: cover;
   width: 100%;
   height: 158px;
+}
+
+.card-details {
+  margin: 25px 20px 40px;
+}
+
+.card-details h2 {
+  font-size: large;
+  font-weight: bold;
+  margin-bottom: 14px;
+}
+
+.card-details li {
+  margin-bottom: 10px;
+  font-size: smaller;
+}
+
+.card-details li span {
+  font-weight: bold;
+}
+@media screen and (max-width: 1206px) {
+  .card-grid {
+    justify-content: space-around;
+  }
+  .card {
+    margin-bottom: 39px;
+  }
 }
