@@ -1,4 +1,5 @@
 import React from "react";
+import { MdOutlineKeyboardBackspace } from "react-icons/md";
 
 const SingleDisplay = ({ data, viewCountry, setViewCountry }) => {
   const country = data.find((e) => e.cca3 === viewCountry);
@@ -22,59 +23,65 @@ const SingleDisplay = ({ data, viewCountry, setViewCountry }) => {
     return borders && Object.values(e).some((r) => borders.includes(r));
   });
 
+  const languageArray = Object.values(languages).map((key, index) => {
+    return key;
+  });
+
+  const currencyArray = Object.values(currencies).map((key, index) => {
+    return key.name;
+  });
+
   return (
-    <>
+    <div className='single-country'>
       <button className='back-btn btn' onClick={() => setViewCountry(false)}>
-        Back
+        <MdOutlineKeyboardBackspace /> Back
       </button>
-      <main className='singleCountry'>
+      <main className='country-info'>
         <picture>
           <img src={flags.png} alt='flag' />
         </picture>
         <div>
           <h2>{name.common}</h2>
-          <ul>
-            <li>
-              <span className='subheading'>Native Name: </span>
-              {altSpellings[1]}
-            </li>
-            <li>
-              <span className='category'>Population: </span>
-              {population.toLocaleString("en-US")}
-            </li>
-            <li>
-              <span className='category'>Region: </span>
-              {region}
-            </li>
-            <li>
-              <span className='category'>Sub Region: </span>
-              {subregion}
-            </li>
-            <li>
-              <span className='category'>Capital: </span>
-              {capital}
-            </li>
-          </ul>
-          <ul>
-            <li>
-              <span className='category'>Top Level Domain: </span>
-              {tld}
-            </li>
-            <li>
-              <span className='category'>Currencies: </span>
-              {Object.values(currencies).map((key, index) => {
-                return <span key={index}>{key.name}</span>;
-              })}
-            </li>
-            <li>
-              <span className='category'>Languages: </span>
-              {Object.values(languages).map((key, index) => {
-                return <span key={index}>{key}, </span>;
-              })}
-            </li>
-          </ul>
-          <span className='category'>Border Countries:</span>
-          <ul>
+          <div className='list-container'>
+            <ul>
+              <li>
+                <span className='subheading'>Native Name: </span>
+                {altSpellings[1]}
+              </li>
+              <li>
+                <span className='category'>Population: </span>
+                {population.toLocaleString("en-US")}
+              </li>
+              <li>
+                <span className='category'>Region: </span>
+                {region}
+              </li>
+              <li>
+                <span className='category'>Sub Region: </span>
+                {subregion}
+              </li>
+              <li>
+                <span className='category'>Capital: </span>
+                {capital}
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <span className='category'>Top Level Domain: </span>
+                {tld}
+              </li>
+              <li>
+                <span className='category'>Currencies: </span>
+                {currencyArray.join(", ")}
+              </li>
+              <li>
+                <span className='category'>Languages: </span>
+                {languageArray.join(", ")}
+              </li>
+            </ul>
+          </div>
+          <ul className='border-countries'>
+            <span className='category'>Border Countries:</span>
             {borders &&
               borderData.map((country, index) => {
                 return (
@@ -91,7 +98,7 @@ const SingleDisplay = ({ data, viewCountry, setViewCountry }) => {
           </ul>
         </div>
       </main>
-    </>
+    </div>
   );
 };
 

@@ -14,7 +14,8 @@
 
 .inner-header,
 .search,
-.card-grid {
+.card-grid,
+.single-country {
   max-width: 1280px;
   margin: 0 4%;
 }
@@ -24,6 +25,9 @@ button {
   background-color: var(--elements);
   color: var(--text-primary);
   border: 0;
+  border-radius: 8px;
+  min-width: 94px;
+  padding: 3px 6px;
 }
 header {
   background-color: var(--elements);
@@ -132,6 +136,7 @@ header button {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  text-align: left;
 }
 
 .region-list {
@@ -143,14 +148,21 @@ header button {
   overflow: hidden;
   border-radius: 8px;
   margin-top: 4px;
+  max-height: 0;
+  z-index: -10;
 }
 
 .region-list.active {
   opacity: 1 !important;
   overflow: auto;
+  max-height: 500px;
+  z-index: 10;
 }
 .region-list li {
   padding: 5px 10px;
+}
+.region-list button {
+  text-align: left;
 }
 
 .card-grid {
@@ -202,5 +214,114 @@ header button {
   }
   .card {
     margin-bottom: 39px;
+  }
+}
+
+.single-country {
+  display: flex;
+  width: 92%;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.back-btn {
+  margin-bottom: 80px;
+  font-size: 15px;
+  width: 136px;
+  padding: 4px;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.back-btn svg {
+  margin-right: 12px;
+  align-self: center;
+  transform: scale(1.3);
+}
+.country-info {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 46% 46%;
+  justify-content: space-between;
+}
+
+.country-info picture img {
+  width: 100%;
+}
+
+.country-info > div:first-of-type {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.country-info h2 {
+  font-size: xx-large;
+  font-weight: bold;
+  margin-bottom: 32px;
+}
+
+.list-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list-container span {
+  font-weight: bold;
+}
+
+.list-container li {
+  margin-bottom: 15px;
+}
+
+.border-countries {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.border-countries span {
+  flex-shrink: 0;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.border-countries li,
+.border-countries span {
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 1015px) {
+  .list-container {
+    display: block;
+  }
+
+  .list-container ul {
+    margin-bottom: 40px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .back-btn {
+    margin-left: 3%;
+  }
+  .country-info {
+    grid-template-columns: 94%;
+    justify-content: center;
+  }
+
+  .country-info h2 {
+    margin-top: 32px;
+  }
+
+  .border-countries {
+    margin-bottom: 60px;
+  }
+  .border-countries span {
+    display: block;
+    width: 100%;
   }
 }
