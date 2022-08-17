@@ -20,6 +20,16 @@
   margin: 0 4%;
 }
 
+header,
+.search-container,
+.card,
+.filter-button,
+.region-list,
+.back-btn,
+.border-countries button {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
 button {
   cursor: pointer;
   background-color: var(--elements);
@@ -54,11 +64,22 @@ header h1 {
 header button {
   height: fit-content;
   padding: 3px 0px 3px 10px;
+  font-size: 15px;
+}
+
+header button svg {
+  margin-right: 8px;
+  transform: translateY(5px);
+  transform: rotate(-30deg);
 }
 
 @media screen and (max-width: 600px) {
   header h1 {
     font-size: large;
+  }
+
+  header button {
+    font-size: 12px;
   }
 }
 .search {
@@ -96,11 +117,19 @@ header button {
 .inner-search .search-container {
   height: 56px;
   min-width: 342px;
+  width: 39%;
   border-radius: 8px;
   background-color: var(--elements);
   padding-left: 32px;
   display: flex;
   align-items: center;
+}
+
+@media screen and (max-width: 600px) {
+  .inner-search .search-container {
+    min-width: none;
+    width: 100%;
+  }
 }
 
 .inner-search > div > svg {
@@ -168,7 +197,7 @@ header button {
 .card-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5%;
+  /* gap: 1.5%; */
 
   justify-content: space-between;
 }
@@ -206,7 +235,7 @@ header button {
 }
 
 .card-details li span {
-  font-weight: bold;
+  font-weight: 600;
 }
 @media screen and (max-width: 1206px) {
   .card-grid {
@@ -269,7 +298,7 @@ header button {
 }
 
 .list-container span {
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .list-container li {
@@ -282,9 +311,15 @@ header button {
   align-items: center;
 }
 
+.border-countries button {
+  border-radius: 4px;
+  font-size: 13px;
+  padding: 4px;
+}
+
 .border-countries span {
   flex-shrink: 0;
-  font-weight: bold;
+  font-weight: 600;
   margin-right: 10px;
 }
 

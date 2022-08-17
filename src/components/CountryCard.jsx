@@ -15,7 +15,7 @@ const CountryCard = ({ country, id, viewCountry, setViewCountry }) => {
         <ul>
           <li>
             <span>Population: </span>
-            {population} peeps
+            {population}
           </li>
           <li>
             <span>Region: </span>

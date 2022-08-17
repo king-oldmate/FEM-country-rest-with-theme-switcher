@@ -19,6 +19,7 @@ const GridDisplay = ({
             regionFilter.includes(region) &&
             name.common.toLowerCase().indexOf(search.toLowerCase()) > -1 && (
               <CountryCard
+                key={index}
                 country={country}
                 id={index}
                 viewCountry={viewCountry}
