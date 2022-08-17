@@ -34,8 +34,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Github repo](https://github.com/king-oldmate/FEM-country-rest-with-theme-switcher)
+- Live Site URL: [Live Site](https://gorgeous-maamoul-26d737.netlify.app/)
 
 ## My process
 
