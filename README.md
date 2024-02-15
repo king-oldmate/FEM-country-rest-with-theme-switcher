@@ -64,6 +64,4 @@ Still need to work on utilising APIs, it just hasn't clicked for me yet. Encapsu
 
 ## Author
 
-- Website - [Raymond Zeaiter](https://www.raymond-zeaiter.au)
 - Frontend Mentor - [@king-oldmate](https://www.frontendmentor.io/profile/king-oldmate)
-- Twitter - [@RayZeaiter](https://www.twitter.com/RayZeaiter)
